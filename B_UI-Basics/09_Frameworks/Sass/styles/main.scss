@@ -1,0 +1,134 @@
+@import "reset";
+// imported partials use the above syntax and should be included at the top of the main scss file
+
+// VARIABLES
+// A container that holds an assigned value
+
+// let x = 23;
+// let y = 10;
+// x + y = 33;
+
+// CSS Variables
+
+// :root {
+//   --main-bg-color: rgb(140, 42, 165);
+// }
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+// SASS - syntatically awesome style sheets
+// SCSS - Sassy CSS
+
+// EXTEND
+
+// .breakfast {
+//   color: #333333;
+//   border: 1px solid crimson;
+//   box-shadow: 1px 1px 0 #ddd;
+//   margin: 0 0 10px 0;
+//   padding: 15px;
+// }
+
+// .lunch {
+//   background-color: yellow;
+//   color: #333333;
+//   border: 1px solid crimson;
+//   box-shadow: 1px 1px 0 #ddd;
+//   margin: 0 0 10px 0;
+//   padding: 15px;
+// }
+
+// .dinner {
+//   background-color: orange;
+//   color: #333333;
+//   border: 1px solid crimson;
+//   box-shadow: 1px 1px 0 #ddd;
+//   margin: 0 0 10px 0;
+//   padding: 15px;
+// }
+
+%meal-box {
+  color: #333333;
+  border: 1px solid crimson;
+  box-shadow: 1px 1px 0 #ddd;
+  margin: 0 0 10px 0;
+  padding: 15px;
+}
+
+.breakfast {
+  @extend %meal-box;
+}
+
+.lunch {
+  @extend %meal-box;
+  background-color: yellow;
+}
+
+.dinner {
+  @extend %meal-box;
+  background-color: orange;
+}
+
+// Placehold selector - similar to a class selector.
+
+// MIXINS
+
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin colorize-paragraph($color) {
+  border: dotted 3px $color;
+  background: rgba($color, 0.3);
+}
+
+.p-1 {
+  @include colorize-paragraph(red);
+}
+
+.p-2 {
+  @include colorize-paragraph(rgb(18, 196, 33));
+}
+
+.p-3 {
+  @include colorize-paragraph(blue);
+}
+
+// MAPS
+
+// A collection of key - value pairs
+
+// $name-of-map: (
+//   key: value,
+//   other-key: other-value,
+// );
+
+$colors: (
+  "primary": hotpink,
+  "secondary": chartreuse,
+  "tertiary": aqua,
+  "neutral": #efefef,
+);
+
+$font-weights: (
+  "light": 100,
+  "regular": 400,
+  "bold": 900,
+);
+
+h1 {
+  color: map-get($colors, tertiary);
+  font-weight: map-get($font-weights, light);
+}
+
+$padding-map: (
+  "x-small": 3px,
+  "small": 6px,
+  "medium": 10px,
+  "large": 15px,
+  "x-large": 22px,
+);

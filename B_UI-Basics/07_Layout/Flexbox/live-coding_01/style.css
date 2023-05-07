@@ -1,0 +1,68 @@
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.4rem;
+  font-family: sans-serif;
+}
+
+/* *********************************************** */
+
+.flex-container {
+  display: flex;
+  border: 2px solid black;
+
+  /* default direction is row  - MAIN-AXIS*/
+
+  justify-content: center;
+
+  /* flex-direction: column; */
+  /* column is CROSS-AXIS */
+
+  /* align-items: center; */
+}
+
+.flexitem {
+  height: 15rem;
+  width: 15rem;
+  border: 1px solid black;
+  background-color: hotpink;
+
+  /* using flexbox inside flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ********************************** */
+
+/* flexwrap - sets whether flex items are forced onto one line or can wrap onto multiple lines */
+
+.flex-container-wrap {
+  display: flex;
+  flex-wrap: wrap;
+
+  /* flex-wrap: nowrap; */
+
+  /* flex-direction: column-reverse; */
+
+  /* flex-direction: row-reverse; */
+
+  /* flex-flow: flex-direction flex-wrap */
+
+  flex-flow: row nowrap;
+}
+
+.flex-container-wrap .flexitem-wrap {
+  height: 20rem;
+  width: 20rem;
+  border: 1px solid black;
+  background-color: chartreuse;
+}

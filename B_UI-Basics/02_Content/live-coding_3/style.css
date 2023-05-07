@@ -1,0 +1,78 @@
+/* COLOR IN CSS */
+
+/* rgb */
+/* red, green, blue */
+
+h1 {
+  color: rgb(15, 18, 179);
+}
+
+/* rgba */
+/* RBG + an alpha value (opacity) */
+
+body {
+  background-color: rgba(228, 228, 140, 0.5);
+}
+
+/* hex */
+/* Expression of RGB as hexadecimal characters (0–9, A–F) */
+
+h2 {
+  /* color: #000000 - black */
+  /* color: #fffafa - snow */
+  color: #ff4500;
+  /* orangered */
+}
+
+/* PSEUDO CLASSES */
+/* A pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). */
+
+h1:hover {
+  background-color: rgb(247, 8, 56);
+}
+
+h2:hover {
+  background-color: #efefef;
+}
+
+/* multiple selectors */
+h1:hover,
+h2:hover {
+  color: rgba(98, 185, 11, 0.924);
+}
+
+/* The :active CSS pseudo-class represents an element (such as a button) that is being activated by the user. When using a mouse, "activation" typically starts when the user presses down the primary mouse button. */
+
+a:active {
+  background-color: #000000;
+}
+
+a:visited {
+  color: rgb(43, 241, 109);
+}
+
+/* CSS UNITS */
+
+/* h1 {
+  font-size: 48px;
+} */
+
+/* EM & REM */
+/* REM (root element) has a default value of 16px */
+
+h1 {
+  font-size: 3rem; /* 48px */
+}
+
+/* EM is to the font-size of the element (2em means 2 times the size of the current font) */
+
+h2 {
+  font-size: 2em;
+}
+
+/* VW */
+
+/* body {
+  width: 25%;
+  width: 25vw;
+} */

@@ -1,0 +1,41 @@
+/* CLASSES */
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+/* ID */
+
+#green {
+  color: green;
+}
+
+/* WHICH STYLE IS APPLIED? */
+
+#yellow {
+  background-color: yellow;
+}
+
+.pink {
+  background-color: hotpink;
+}
+/* 
+ID will win. The trainer should also add an inline style to the p tag to demonstrate specificity */
+
+/* ******************************** */
+
+/* WHAT COLOR IS THE SECOND P TAG? */
+
+#purple {
+  color: purple;
+}
+
+.lawngreen {
+  color: lawngreen !important;
+}
+
+/* This second p tag will be green  but this is considered bad practice since it overrides the default rules and should be avoided */
