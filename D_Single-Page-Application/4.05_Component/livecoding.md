@@ -2,16 +2,21 @@
 
 Wir sind in dem Tutorial in Part zwei stehengeblieben, den wir fast komplett zu Ende gemacht haben
 - das nächste Kapitel ist “Rendering the TodoItem Component”
-Nachdem das “Rendering the TodoItem Component” Kapitel zu Ende ist, war mein Plan folgender:
+
+Nachdem das “Rendering the TodoItem Component” Kapitel zu Ende ist:
 Folgende Aufgabe für die TN:
 
 # SPA-react-movielist
 Beschreibung Aufgabe: https://github.com/22-d08-a/SPA-react-movielist/blob/main/README.md
+
 Übersicht: https://classroom.github.com/classrooms/116103094-22-d08-a-classroom/assignments/spa-react-movielist
+
 Link Aufgabe: https://classroom.github.com/a/64M05bCt
 
-Danach wollte ich die TN in das Thema *state als Hook* einführen, bevor es weiter im  Praxis-Teil des Tutorials geht. Wir hatten schon darüber gesprochen, aber es noch nicht in die Tat umgesetzt.
-um kein neues Projekt erstellen zu müssen, würde ich in der Todo-App eine neue Komponente erstellen und dort state an Hand eines simplen live codings zeigen
+
+Danach die TN in das Thema *state als Hook* einführen, bevor es weiter im  Praxis-Teil des Tutorials geht.
+
+um kein neues Projekt erstellen zu müssen, in der Todo-App eine neue Komponente erstellen und dort `state` an Hand eines simplen live codings zeigen
 - components/practise/state/[KomponentenName.jsx]
 
 ## eine Beispiel-Live-Coding Vorlage
