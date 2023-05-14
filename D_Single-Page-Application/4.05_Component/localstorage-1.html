@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalStorage</title>
+
+  <script>
+    function saveName() {
+      const name = document.querySelector("#name").value;
+
+      // Namen dauerhaft im Browser speichern (localStorage)
+      localStorage.setItem("userName", name);
+      // ähnlich zu Variablen: const userName = name;
+
+      // Formularfeld leeren
+      document.querySelector("#name").value = "";
+      // (besser wäre, input element ni einer Variablen zu speichern)
+    }
+
+    function displayName() {
+      // gib uns aus dem localStorage "userName"
+      const savedName = localStorage.getItem("userName");
+
+      // wenn wir kein "userName" im LocalStorage haben, ist 
+      // der Wert null
+      const greetingEl = document.querySelector(".greeting");
+      if(savedName) {
+        greetingEl.textContent = `Hallo ${savedName}!`
+      } else {
+        greetingEl.textContent = "Kein Name gespeichert."
+      }
+
+    }
+
+    function clearName() {
+      // userName aus localStorage löschen
+      localStorage.removeItem("userName");
+
+      // Alternativ: den GESAMTEN localStorage löschen
+      // localStorage.clear();
+
+      document.querySelector(".greeting").textContent = "";
+    }
+
+
+
+  </script>
+</head>
+<body>
+  
+
+  <h1>LocalStorage Demo</h1>
+  <p>Gib deinen Namen ein:</p>
+  <input type="text" id="name">
+
+  <button onclick="saveName()">Namen speichern</button>
+  <button onclick="displayName()">Namen anzeigen</button>
+  <button onclick="clearName()">Namen löschen</button>
+
+  <p class="greeting"></p>
+ 
+
+</body>
+</html>

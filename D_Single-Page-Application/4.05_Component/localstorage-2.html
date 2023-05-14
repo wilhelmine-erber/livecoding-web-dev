@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalStorage JSON Demo</title>
+</head>
+
+<script>
+    // Funktion zum Speichern bzw. Hinzufügen eines Namens im ARRAY im LocalStorage
+    function saveName() { 
+
+       // Name aus dem Eingabefeld holen
+       const name = document.getElementById("name").value;
+
+      // Hole die Namen aus LocalStorage und wandle sie in ein Array um, 
+      // oder (||) verwende ein leeres Array (wenn sich noch nichts im locaStorage befindet)
+      let names = JSON.parse( localStorage.getItem("userNames") ) || [];
+
+      // längere Alternative zu Zeile oben
+      // let names = JSON.parse( localStorage.getItem("userNames") );
+      // if(names === null) {
+      //   names = [];
+      // }
+
+      // Prüfe, ob der Name gültig (z.B. nicht leerer String) ist 
+      // und noch nicht im Array vorhanden ist
+      if (name && !names.includes(name)) {
+        // Füge den Namen zum Array hinzu
+        names.push(name);
+
+        // Speichere das aktualisierte Array als JSON-Objekt in LocalStorage
+        localStorage.setItem( "userNames", JSON.stringify(names) );
+
+        // Zeige die aktualisierte Liste der Namen an
+       displayNames();
+
+      }
+
+      // Leere das Eingabefeld
+      document.getElementById("name").value = "";
+
+
+    }
+
+
+    // Funktion zum Anzeigen der Namen aus LocalStorage
+
+    function displayNames() {
+      // Hole die Namen aus LocalStorage und wandle sie in ein Array um,
+      // oder verwende ein leeres Array
+      const names = JSON.parse( localStorage.getItem("userNames") ) || [];
+
+      // Erstelle eine Liste der Namen mit einem "Entfernen"-Button für jeden Namen
+      let namesList = '';
+      names.forEach(name => {
+        namesList += `<li>${name} <button onclick="removeName('${name}')">Remove</button></li>`;
+      })
+
+      // Zeige die Liste der Namen auf der Seite an
+      document.getElementById("namesList").innerHTML = namesList;
+    }
+
+  // Funktion zum Entfernen eines Namens aus LocalStorage
+  function removeName(name) {
+      // Hole die Namen aus LocalStorage und wandle sie in ein Array um, oder verwende ein leeres Array
+      let names = JSON.parse(localStorage.getItem("userNames")) || [];
+
+      // Entferne den angegebenen Namen aus dem Array
+      names = names.filter(item => item !== name);
+
+      // Speichere das aktualisierte Array als JSON-Objekt in LocalStorage
+      localStorage.setItem("userNames", JSON.stringify(names));
+
+      // Zeige die aktualisierte Liste der Namen an
+      displayNames();
+    }
+
+    // Rufe die displayNames()-Funktion auf, wenn die Seite geladen wird
+    window.addEventListener("load", displayNames)
+</script>
+
+<body>
+
+  <h1>LocalStorage JSON: Objekte und Arrays speichern</h1>
+  <p>
+    Info: Im LocalStorage können nur Strings gespeichert werden. 
+    Daher kann man sich mit JSON arbeiten, um z.B. Objekte oder Arrays zu speichern. 
+  </p>
+
+  <p>Geben Sie einen Namen ein:</p>
+  <input type="text" id="name">
+
+  <button onclick="saveName()">Namen speichern</button>
+
+  <h2>Namensliste:</h2>
+  <ul id="namesList"></ul>
+  
+</body>
+</html>
